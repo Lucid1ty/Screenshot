@@ -1,5 +1,8 @@
 # _*_ coding : utf-8 _*_
 # @Time : 2022/4/20 22:09
+"""
+使用环境：Anaconda：py38
+"""
 from PIL import ImageGrab
 import time
 import pynput
@@ -7,9 +10,9 @@ import os
 
 
 num = 1  # 从第一张开始截图
-dir_name = '/Picture'   # 截图存放的路径
+dir_name = '/Screenshot'   # 截图存放的路径
 # 如果不存在这个文件则在当前目录下创建
-if not os.path.exists('Picture'):
+if not os.path.exists('Screenshot'):
     os.mkdir('./' + dir_name)
 
 
@@ -27,7 +30,7 @@ def on_press(key):
     if key == pynput.keyboard.KeyCode(char='e'):
         time.sleep(2)
         img = ImageGrab.grab(region)  # 截图
-        img.save('./' + dir_name + '/' + str(num) + '.jpg')  # 保存截图到Picture下
+        img.save('./' + dir_name + '/' + str(num) + '.jpg')  # 保存截图到 Screenshot 文件夹下
         num += 1
 
 
